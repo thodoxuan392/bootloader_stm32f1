@@ -125,11 +125,11 @@ void HTTP_Firmware_Processing(){
 	switch (HTTP_Get_State()) {
 		case HTTP_DONE:
 			if(Get_Update_Firmware_Status() == UPDATE_SUCCESS){
-				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"FOTA_%s",CONFIG_get()->device_id);
+				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"%s/%s/ota",MODEL,CONFIG_get()->device_id);
 				sprintf(PAYLOAD,"SUCCESS");
 			}
 			else{
-				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"FOTA_%s",CONFIG_get()->device_id);
+				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"%s/%s/ota",MODEL,CONFIG_get()->device_id);
 				if(firmware_state == ERR_CHECKSUM){
 					sprintf(PAYLOAD,"ERR_CHECKSUM");
 				}
@@ -144,7 +144,7 @@ void HTTP_Firmware_Processing(){
 			// If have new complete percent, It will publish to Server
 			if(complete_percent != pre_complete_percent){
 				pre_complete_percent = complete_percent;
-				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"FOTA_%d",CONFIG_get()->device_id);
+				sprintf(UPDATE_PERCENT_COMPLETE_TOPIC,"%s/%s/ota",MODEL, CONFIG_get()->device_id);
 				sprintf(PAYLOAD,"%d",complete_percent);
 				MQTT_Add_Message(UPDATE_PERCENT_COMPLETE_TOPIC, PAYLOAD);
 				fsm_curr_state = UPDATE_COMPLETE_PERCENT;

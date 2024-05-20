@@ -14,6 +14,8 @@
 #define VERSION_MAX_LEN		8
 #define VERSION	 			"1.0.0"
 
+#define MODEL				"card-vendor"
+
 #define DEVICE_ID_MAX_LEN				10
 #ifndef DEVICE_ID_DEFAULT
 	#define DEVICE_ID_DEFAULT		"123456"

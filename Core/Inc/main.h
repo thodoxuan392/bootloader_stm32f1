@@ -67,10 +67,10 @@ extern "C" {
 
 
 
-#define MQTT_SERVER					"\"tcp://35.240.158.2:8883\""
+#define MQTT_SERVER					"\"tcp://103.170.123.25:1883\""
 //note that ClientID be differenced between lockers
-#define USER_NAME					"\"eboost-k2\""
-#define PASS_WORD					"\"ZbHzPb5W\""
+#define USER_NAME					"\"pos-2023\""
+#define PASS_WORD					"\"xcv123@asdkwreouox#asd\""
 
 #define MAX_LENGTH_TOPIC				50
 #define MAX_LENGTH_PAYLOAD				50
